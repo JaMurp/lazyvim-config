@@ -1,9 +1,12 @@
-
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+
+--Ctr d and u center
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 
 -- Set relative and absolute line numbers
 vim.wo.number = true
@@ -70,7 +73,7 @@ vim.opt.updatetime = 50 -- Sets the time (ms) before triggering CursorHold event
 
 -- Auto-save settings
 -- Auto-save on leaving insert mode, switching buffers, and losing focus
-vim.api.nvim_create_autocmd({"InsertLeave", "BufLeave", "FocusLost"}, {
+vim.api.nvim_create_autocmd({ "InsertLeave", "BufLeave", "FocusLost" }, {
   pattern = "*",
   callback = function()
     if vim.bo.modified then
@@ -80,7 +83,7 @@ vim.api.nvim_create_autocmd({"InsertLeave", "BufLeave", "FocusLost"}, {
 })
 
 -- Auto-save every 2 minutes (120000 milliseconds)
-vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
   pattern = "*",
   callback = function()
     if vim.bo.modified then
@@ -99,12 +102,9 @@ vim.api.nvim_set_keymap("v", "<S-Tab>", "<gv", { noremap = true, silent = true }
 
 vim.o.cursorline = false
 
-
-
-vim.g.loaded_matchparen = 1  -- Disable matchparen plugin
+vim.g.loaded_matchparen = 1 -- Disable matchparen plugin
 
 -- Explicitly set formatoptions to not auto-pair brackets or parentheses
-vim.opt.formatoptions:remove('c')
-vim.opt.formatoptions:remove('r')
-vim.opt.formatoptions:remove('o')
-
+vim.opt.formatoptions:remove("c")
+vim.opt.formatoptions:remove("r")
+vim.opt.formatoptions:remove("o")

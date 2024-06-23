@@ -1,4 +1,3 @@
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -62,10 +61,10 @@ require("lazy").setup({
       config = function()
         local npairs = require("nvim-autopairs")
         npairs.setup({
-          disable_filetype = { "TelescopePrompt" , "vim" },
-          disable_in_macro = true,  -- Disable auto-pairing in macros
-          disable_in_visualblock = true,  -- Disable auto-pairing in visual block mode
-          disable_in_replace_mode = true,  -- Disable auto-pairing in replace mode
+          disable_filetype = { "TelescopePrompt", "vim" },
+          disable_in_macro = true, -- Disable auto-pairing in macros
+          disable_in_visualblock = true, -- Disable auto-pairing in visual block mode
+          disable_in_replace_mode = true, -- Disable auto-pairing in replace mode
         })
       end,
     },
@@ -91,4 +90,3 @@ require("lazy").setup({
     },
   },
 })
-
